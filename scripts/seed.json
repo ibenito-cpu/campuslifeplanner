@@ -1,0 +1,92 @@
+[
+    {
+        "id": "rec_1",
+        "title": "CS101 Final Project",
+        "dueDate": "2025-10-15",
+        "duration": 300,
+        "tag": "Coding",
+        "createdAt": "2025-01-01T00:00:00.000Z",
+        "updatedAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+        "id": "rec_2",
+        "title": "Biology Lab Report",
+        "dueDate": "2025-09-30",
+        "duration": 120.5,
+        "tag": "Science-Lab",
+        "createdAt": "2025-01-02T00:00:00.000Z",
+        "updatedAt": "2025-01-02T00:00:00.000Z"
+    },
+    {
+        "id": "rec_3",
+        "title": "Study Group",
+        "dueDate": "2025-10-01",
+        "duration": 90,
+        "tag": "Study",
+        "createdAt": "2025-01-03T00:00:00.000Z",
+        "updatedAt": "2025-01-03T00:00:00.000Z"
+    },
+    {
+        "id": "rec_4",
+        "title": "Library shift",
+        "dueDate": "2025-10-02",
+        "duration": 240,
+        "tag": "Work",
+        "createdAt": "2025-01-04T00:00:00.000Z",
+        "updatedAt": "2025-01-04T00:00:00.000Z"
+    },
+    {
+        "id": "rec_5",
+        "title": "Read chapter 4 and 5",
+        "dueDate": "2025-09-28",
+        "duration": 60,
+        "tag": "Reading",
+        "createdAt": "2025-01-05T00:00:00.000Z",
+        "updatedAt": "2025-01-05T00:00:00.000Z"
+    },
+    {
+        "id": "rec_6",
+        "title": "Math assignment",
+        "dueDate": "2025-10-05",
+        "duration": 180,
+        "tag": "Math",
+        "createdAt": "2025-01-06T00:00:00.000Z",
+        "updatedAt": "2025-01-06T00:00:00.000Z"
+    },
+    {
+        "id": "rec_7",
+        "title": "Gym",
+        "dueDate": "2025-09-29",
+        "duration": 45,
+        "tag": "Health",
+        "createdAt": "2025-01-07T00:00:00.000Z",
+        "updatedAt": "2025-01-07T00:00:00.000Z"
+    },
+    {
+        "id": "rec_8",
+        "title": "Meeting with Advisor",
+        "dueDate": "2025-10-10",
+        "duration": 30,
+        "tag": "Admin",
+        "createdAt": "2025-01-08T00:00:00.000Z",
+        "updatedAt": "2025-01-08T00:00:00.000Z"
+    },
+    {
+        "id": "rec_9",
+        "title": "Hackathon prep",
+        "dueDate": "2025-11-01",
+        "duration": 600,
+        "tag": "Extracurricular",
+        "createdAt": "2025-01-09T00:00:00.000Z",
+        "updatedAt": "2025-01-09T00:00:00.000Z"
+    },
+    {
+        "id": "rec_10",
+        "title": "Grocery Shopping",
+        "dueDate": "2025-09-27",
+        "duration": 75,
+        "tag": "Personal",
+        "createdAt": "2025-01-10T00:00:00.000Z",
+        "updatedAt": "2025-01-10T00:00:00.000Z"
+    }
+]
