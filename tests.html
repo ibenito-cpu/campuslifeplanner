@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regex & Validation Tests</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f8fafc; color: #0f172a; padding: 2rem; }
+    h1 { border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+    .test-suite { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 1rem; }
+    .pass { color: #16a34a; font-weight: bold; }
+    .fail { color: #dc2626; font-weight: bold; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9; }
+  </style>
+</head>
+<body>
+
+  <h1>🧪 Campus Life Planner - Test Suite</h1>
+  <div id="test-results"></div>
+
+  <script type="module">
+    // Import the regex patterns from our actual app code
+    import { rxTitle, rxDuration, rxDate, rxTag, rxDuplicate } from './scripts/validators.js';
+
+    const resultsContainer = document.getElementById('test-results');
+
+    // Mini test runner
+    function describe(suiteName, tests) {
+      const suiteDiv = document.createElement('div');
+      suiteDiv.className = 'test-suite';
+      let html = `<h2>${suiteName}</h2><ul>`;
+      
+      tests.forEach(test => {
+        const passed = test.fn();
+        const statusClass = passed ? 'pass' : 'fail';
+        const statusText = passed ? '✅ PASS' : '❌ FAIL';
+        html += `<li><span class="${statusClass}">${statusText}</span> - ${test.desc}</li>`;
+      });
+      
+      html += '</ul>';
+      suiteDiv.innerHTML = html;
+      resultsContainer.appendChild(suiteDiv);
+    }
+
+    // Run Test Suites
+    describe('1. Title Regex (/^\\S+(?: \\S+)*$/)', [
+      { desc: 'Allows valid standard title', fn: () => rxTitle.test("CS101 Assignment") === true },
+      { desc: 'Fails if there are leading spaces', fn: () => rxTitle.test(" CS101") === false },
+      { desc: 'Fails if there are trailing spaces', fn: () => rxTitle.test("CS101 ") === false },
+      { desc: 'Fails if there are consecutive spaces inside', fn: () => rxTitle.test("CS101  Assignment") === false }
+    ]);
+
+    describe('2. Duration Regex (/^(0|[1-9]\\d*)(\\.\\d{1,2})?$/)', [
+      { desc: 'Allows whole numbers (e.g., 120)', fn: () => rxDuration.test("120") === true },
+      { desc: 'Allows numbers with decimals (e.g., 45.50)', fn: () => rxDuration.test("45.50") === true },
+      { desc: 'Fails on negative numbers', fn: () => rxDuration.test("-10") === false },
+      { desc: 'Fails on letters', fn: () => rxDuration.test("abc") === false }
+    ]);
+
+    describe('3. Date Regex (YYYY-MM-DD)', [
+      { desc: 'Allows correct format (2026-10-15)', fn: () => rxDate.test("2026-10-15") === true },
+      { desc: 'Fails reversed format (10-15-2026)', fn: () => rxDate.test("10-15-2026") === false },
+      { desc: 'Fails invalid month (2026-13-15)', fn: () => rxDate.test("2026-13-15") === false }
+    ]);
+
+    describe('4. Tag Regex (/^[A-Za-z]+(?:[ -][A-Za-z]+)*$/)', [
+      { desc: 'Allows single word (Study)', fn: () => rxTag.test("Study") === true },
+      { desc: 'Allows hyphenated words (Science-Lab)', fn: () => rxTag.test("Science-Lab") === true },
+      { desc: 'Fails special characters (Study!)', fn: () => rxTag.test("Study!") === false }
+    ]);
+
+    describe('5. Advanced: Duplicate Word Back-Reference (\\b(\\w+)\\s+\\1\\b)', [
+      { desc: 'Detects duplicate adjacent words (e.g., "Study Study")', fn: () => rxDuplicate.test("Study Study") === true },
+      { desc: 'Ignores normal sentences', fn: () => rxDuplicate.test("Study for the exam") === false },
+      { desc: 'Is case-insensitive (e.g., "Read read")', fn: () => rxDuplicate.test("Read read") === true }
+    ]);
+  </script>
+</body>
+</html>
