@@ -1,6 +1,7 @@
 #  Campus Life Planner
 
 **Live Deployment:** https://ibenito-cpu.github.io/campuslifeplanner/
+
 **Demo Video:** https://www.youtube.com/watch?v=ZsvtXyMHXAI
 
 ## Overview
@@ -48,7 +49,7 @@ This app is fully navigable without a mouse.
 
 ---
 
-## ♿ Accessibility (A11y) Notes
+## Accessibility (A11y) Notes
 * **Semantic HTML:** Utilizes `<header>`, `<main>`, `<section>`, `<nav>`, and `<form>` landmarks.
 * **Focus States:** Every interactive element features a clear, high-contrast `outline` when focused (`*:focus-visible`).
 * **Skip Link:** Included an invisible-until-focused "Skip to main content" link for screen readers and keyboard users to bypass the header.
